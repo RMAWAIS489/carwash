@@ -3,11 +3,8 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
 import { HiCheckCircle } from 'react-icons/hi';
-import emailjs from '@emailjs/browser';
 
-const EMAILJS_SERVICE_ID  = 'service_k4vln2h';
-const EMAILJS_TEMPLATE_ID = 'template_t6zcs2m';
-const EMAILJS_PUBLIC_KEY  = '3FumOYOELdI6Tnqy9';
+// TODO: Connect email service (EmailJS / Formspree / backend API)
 
 const services = [
   'Website Design & Development',
@@ -32,7 +29,6 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
   const [form, setForm] = useState({
     name: '', email: '', phone: '', business: '', service: '', message: '',
   });
@@ -42,29 +38,8 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
-
-    emailjs.send(
-      EMAILJS_SERVICE_ID,
-      EMAILJS_TEMPLATE_ID,
-      {
-        from_name: form.name,
-        from_email: form.email,
-        phone: form.phone || 'Not provided',
-        business: form.business || 'Not provided',
-        service: form.service || 'Not specified',
-        message: form.message || 'No message',
-      },
-      EMAILJS_PUBLIC_KEY
-    )
-    .then(() => {
-      setLoading(false);
-      setSubmitted(true);
-    })
-    .catch(() => {
-      setLoading(false);
-      setError('Something went wrong. Please try again or email us directly.');
-    });
+    // TODO: replace with real email service
+    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1500);
   };
 
   return (
@@ -241,10 +216,6 @@ export default function Contact() {
                       <><FaPaperPlane /> Send Message</>
                     )}
                   </button>
-
-                  {error && (
-                    <p className="text-red-500 text-sm text-center">{error}</p>
-                  )}
                 </form>
               )}
             </div>
