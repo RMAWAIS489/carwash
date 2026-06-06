@@ -4,8 +4,6 @@ import { useInView } from 'framer-motion';
 import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
 import { HiCheckCircle } from 'react-icons/hi';
 
-const SERVER_URL = 'http://localhost:5000';
-
 const services = [
   'Website Design & Development',
   'Online Booking System',
@@ -29,41 +27,16 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
   const [form, setForm] = useState({
     name: '', email: '', phone: '', business: '', service: '', message: '',
   });
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    setError('');
-    try {
-      const res = await fetch(`${SERVER_URL}/send`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          from_name: form.name,
-          from_email: form.email,
-          phone: form.phone,
-          business: form.business,
-          service: form.service,
-          message: form.message,
-        }),
-      });
-      const data = await res.json();
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        setError(data.error || 'Failed to send. Please try again.');
-      }
-    } catch {
-      setError('Server not reachable. Please try again later.');
-    } finally {
-      setLoading(false);
-    }
+    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1500);
   };
 
   return (
@@ -240,9 +213,6 @@ export default function Contact() {
                       <><FaPaperPlane /> Send Message</>
                     )}
                   </button>
-                  {error && (
-                    <p className="text-red-500 text-sm text-center">{error}</p>
-                  )}
                 </form>
               )}
             </div>
