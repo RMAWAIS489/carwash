@@ -5,7 +5,7 @@ import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaPaperPlane } from 'react-icon
 import { HiCheckCircle } from 'react-icons/hi';
 import emailjs from '@emailjs/browser';
 
-const EMAILJS_SERVICE_ID  = 'service_gh7um6c';
+const EMAILJS_SERVICE_ID  = 'service_k4vln2h';
 const EMAILJS_TEMPLATE_ID = 'template_t6zcs2m';
 const EMAILJS_PUBLIC_KEY  = '3FumOYOELdI6Tnqy9';
 
