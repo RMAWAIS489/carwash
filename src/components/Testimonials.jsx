@@ -103,7 +103,7 @@ export default function Testimonials() {
                 </div>
               </div>
 
-              {/* Stars */}
+              
              
 
               <p className="text-ink-soft leading-relaxed flex-1 italic text-[15px]">
