@@ -1,8 +1,9 @@
+'use client';
+
 import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt, FaPaperPlane } from 'react-icons/fa';
-import { HiCheckCircle } from 'react-icons/hi';
+import { HiCheckCircle, HiXCircle } from 'react-icons/hi';
 
 const services = [
   'Website Design & Development',
@@ -26,6 +27,7 @@ export default function Contact() {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: '', email: '', phone: '', business: '', service: '', message: '',
@@ -33,10 +35,30 @@ export default function Contact() {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => { setLoading(false); setSubmitted(true); }, 1500);
+    setError('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Something went wrong.');
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError(err.message || 'Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -55,14 +77,14 @@ export default function Contact() {
           className="text-center mb-16"
         >
           <span className="inline-block text-primary text-sm font-semibold tracking-widest uppercase mb-3">
-            Let's Talk
+            Let&apos;s Talk
           </span>
           <h2 className="font-display font-black text-4xl md:text-5xl text-ink mb-5">
             Ready to{' '}
             <span className="text-gradient">Grow Your Business?</span>
           </h2>
           <p className="text-ink-muted text-lg max-w-2xl mx-auto">
-            Fill out the form and we'll get back to you within 24 hours with a
+            Fill out the form and we&apos;ll get back to you within 24 hours with a
             custom plan tailored to your car wash business.
           </p>
         </motion.div>
@@ -79,8 +101,8 @@ export default function Contact() {
             <div className="rounded-2xl bg-gradient-to-br from-primary to-primary-dark p-8 text-white shadow-primary">
               <h3 className="font-display font-bold text-2xl mb-3">Free Consultation</h3>
               <p className="text-white/85 text-sm leading-relaxed mb-6">
-                No pressure, no commitment. We'll analyze your current setup and
-                show you exactly what we'd build — before you spend a dime.
+                No pressure, no commitment. We&apos;ll analyze your current setup and
+                show you exactly what we&apos;d build — before you spend a dime.
               </p>
               <ul className="flex flex-col gap-3">
                 {perks.map((item) => (
@@ -145,12 +167,24 @@ export default function Contact() {
                   </div>
                   <h3 className="font-display font-bold text-2xl text-ink">Message Sent!</h3>
                   <p className="text-ink-muted max-w-sm">
-                    Thanks for reaching out. We'll review your request and get
+                    Thanks for reaching out. We&apos;ll review your request and get
                     back to you within 24 hours.
                   </p>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                  {/* Error banner */}
+                  {error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="flex items-center gap-3 px-4 py-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm"
+                    >
+                      <HiXCircle className="text-red-500 text-lg shrink-0" />
+                      <span>{error}</span>
+                    </motion.div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
                       <label className="block text-ink-muted text-xs font-semibold mb-2 uppercase tracking-wide">Your Name *</label>

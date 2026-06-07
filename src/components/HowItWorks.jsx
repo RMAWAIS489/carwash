@@ -1,7 +1,9 @@
+'use client';
+
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FaComments, FaTools, FaRocket } from 'react-icons/fa';
-import howItWorksImg from '../assets/howitworks.png';
 
 const steps = [
   {
@@ -59,7 +61,7 @@ export default function HowItWorks() {
           </h2>
           <p className="text-ink-muted text-lg max-w-2xl mx-auto">
             Getting your car wash business online is easier than you think.
-            Three steps and you're live.
+            Three steps and you&apos;re live.
           </p>
         </motion.div>
 
@@ -70,9 +72,11 @@ export default function HowItWorks() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mb-16 rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-slate-200 max-w-5xl mx-auto"
         >
-          <img
-            src={howItWorksImg}
+          <Image
+            src="/howitworks.png"
             alt="How it works — car wash dashboard"
+            width={1200}
+            height={384}
             className="w-full max-h-96 object-cover"
           />
         </motion.div>

@@ -1,3 +1,5 @@
+'use client';
+
 import { FaCar, FaTwitter, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
 
 const links = {

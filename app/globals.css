@@ -8,7 +8,7 @@
   }
   body {
     @apply bg-surface text-ink overflow-x-hidden;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }
 

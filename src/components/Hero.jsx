@@ -1,10 +1,12 @@
+'use client';
+
 import { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
 import { useCountUp } from '../hooks/useCountUp';
 import { useTypewriter } from '../hooks/useTypewriter';
-import carImage from '../assets/car.png';
 
 const stats = [
   { value: '50+', label: 'Clients Served' },
@@ -61,7 +63,6 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 w-full">
-        {/* Split layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
           {/* LEFT — text content */}
@@ -99,7 +100,6 @@ export default function Hero() {
               >
                 <span className="text-gradient">
                   {displayed}
-                  {/* Blinking cursor while typing */}
                   {!done && (
                     <motion.span
                       animate={{ opacity: [1, 0] }}
@@ -200,10 +200,8 @@ export default function Hero() {
             transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
             className="relative flex items-center justify-center"
           >
-            {/* Glow behind image */}
             <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 via-accent/10 to-transparent blur-2xl scale-110" />
 
-            {/* Badges — static, no animation */}
             <div className="absolute -top-4 -left-4 z-20 bg-white rounded-2xl shadow-card-hover border border-slate-100 px-4 py-3 flex items-center gap-3">
               <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-lg">📅</div>
               <div>
@@ -220,19 +218,20 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* The car image */}
-            <img
-              src={carImage}
+            <Image
+              src="/car.png"
               alt="Premium car wash"
+              width={800}
+              height={600}
+              priority
               className="relative z-10 w-full rounded-[2rem] object-cover drop-shadow-2xl shadow-[0_32px_80px_rgba(0,0,0,0.18)] -mt-10"
-              style={{ maxHeight: '75vh' }}
+              style={{ maxHeight: '75vh', width: '100%', height: 'auto' }}
             />
           </motion.div>
 
         </div>
       </div>
 
-      {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-surface to-transparent" />
     </section>
   );
