@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { FaComments, FaTools, FaRocket } from 'react-icons/fa';
@@ -10,7 +9,7 @@ const steps = [
     icon: FaComments,
     step: '01',
     title: 'Discovery Call',
-    description: 'We start with a free consultation to understand your business, goals, and what digital tools will make the biggest impact for your car wash.',
+    description: 'We start with a free consultation to understand your business, goals, and where automation or a new digital presence can make the biggest impact.',
     iconBg: 'bg-blue-100', iconColor: 'text-primary',
     numberColor: 'text-primary border-blue-200 bg-blue-50',
   },
@@ -18,15 +17,15 @@ const steps = [
     icon: FaTools,
     step: '02',
     title: 'We Build It',
-    description: 'Our team designs and develops your website or automation solution — fully customized to your brand, with revisions until you love it.',
+    description: 'Our team designs and develops your website, automation workflows, or full digital platform — custom to your brand, with revisions until you love it.',
     iconBg: 'bg-cyan-100', iconColor: 'text-cyan-600',
     numberColor: 'text-cyan-600 border-cyan-200 bg-cyan-50',
   },
   {
     icon: FaRocket,
     step: '03',
-    title: 'You Grow',
-    description: 'Launch, go live, and watch the results. We provide ongoing support, analytics, and optimization so your business keeps growing.',
+    title: 'You Scale',
+    description: 'Launch, go live, and watch the results compound. We provide ongoing support, analytics, and optimization so your business keeps growing.',
     iconBg: 'bg-violet-100', iconColor: 'text-violet-600',
     numberColor: 'text-violet-600 border-violet-200 bg-violet-50',
   },
@@ -60,31 +59,15 @@ export default function HowItWorks() {
             How It <span className="text-gradient">Works</span>
           </h2>
           <p className="text-ink-muted text-lg max-w-2xl mx-auto">
-            Getting your car wash business online is easier than you think.
+            Getting your business automated and online is simpler than you think.
             Three steps and you&apos;re live.
           </p>
-        </motion.div>
-
-        {/* Image */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mb-16 rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.1)] border border-slate-200 max-w-5xl mx-auto"
-        >
-          <Image
-            src="/howitworks.png"
-            alt="How it works — car wash dashboard"
-            width={1200}
-            height={384}
-            className="w-full max-h-96 object-cover"
-          />
         </motion.div>
 
         {/* Steps */}
         <div ref={stepsRef} className="relative grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-          {/* Connector lines between steps */}
+          {/* Connector lines */}
           <div className="hidden lg:flex absolute top-10 left-[calc(16.66%+44px)] right-[calc(16.66%+44px)] items-center justify-between pointer-events-none">
             {[0, 1].map((i) => (
               <div key={i} className="flex-1 mx-3">

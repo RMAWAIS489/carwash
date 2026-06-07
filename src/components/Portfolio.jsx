@@ -5,31 +5,31 @@ import { useRef } from 'react';
 
 const projects = [
   {
-    name: 'Sparkle Auto Wash',
-    location: 'Houston, TX',
-    tag: 'Website + Booking',
+    name: 'NovaTech Solutions',
+    location: 'New York, NY',
+    tag: 'Website + Automation',
     tagColor: 'bg-blue-50 text-primary border-blue-100',
-    result: '+40% revenue in 3 months',
+    result: '+55% lead conversion in 60 days',
     resultColor: 'text-emerald-600',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=500&fit=crop&auto=format&q=75',
+    image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=500&fit=crop&auto=format&q=75',
   },
   {
-    name: 'Premier Car Spa',
-    location: 'Los Angeles, CA',
-    tag: 'Automation + CRM',
+    name: 'Meridian Finance',
+    location: 'Chicago, IL',
+    tag: 'CRM + Email Funnels',
     tagColor: 'bg-violet-50 text-violet-700 border-violet-100',
-    result: '60% fewer no-shows',
+    result: '3× faster client onboarding',
     resultColor: 'text-emerald-600',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop&auto=format&q=75',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&auto=format&q=75',
   },
   {
-    name: 'CleanDrive Network',
-    location: 'Miami, FL',
+    name: 'Apex Retail Group',
+    location: 'Austin, TX',
     tag: 'Full Platform',
     tagColor: 'bg-amber-50 text-amber-700 border-amber-100',
-    result: '3 locations, 1 dashboard',
+    result: '$120k additional pipeline tracked',
     resultColor: 'text-emerald-600',
-    image: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=500&fit=crop&auto=format&q=75',
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=500&fit=crop&auto=format&q=75',
   },
 ];
 
@@ -57,12 +57,12 @@ export default function Portfolio() {
             Our Work
           </span>
           <h2 className="font-display font-black text-4xl md:text-5xl text-ink mb-5">
-            Real Websites We've{' '}
-            <span className="text-gradient">Built & Launched</span>
+            Real Projects We&apos;ve{' '}
+            <span className="text-gradient">Built & Delivered</span>
           </h2>
           <p className="text-ink-muted text-lg max-w-2xl mx-auto">
-            Every project is custom. Here's a look at what we've delivered for
-            car wash businesses just like yours.
+            Every project is custom. Here&apos;s a look at what we&apos;ve delivered for
+            businesses across industries.
           </p>
         </motion.div>
 
@@ -129,7 +129,7 @@ export default function Portfolio() {
             href="#contact"
             className="inline-flex items-center gap-2 text-primary font-semibold hover:underline underline-offset-4 text-sm"
           >
-            Want results like these? Let's talk →
+            Want results like these? Let&apos;s talk →
           </a>
         </motion.div>
       </div>

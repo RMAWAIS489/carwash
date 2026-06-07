@@ -11,37 +11,37 @@ const reasons = [
   {
     icon: FaBolt,
     title: 'Built for Speed',
-    description: 'All our sites score 95+ on Google PageSpeed. Faster sites rank higher and convert more visitors.',
+    description: 'All our sites score 95+ on Google PageSpeed. Faster sites rank higher, retain more visitors, and convert better.',
     iconBg: 'bg-amber-50', iconColor: 'text-amber-500',
   },
   {
     icon: FaPaintBrush,
     title: 'Unique Designs',
-    description: 'No templates. Every website is custom-designed to match your brand identity and stand out locally.',
+    description: 'No templates. Every website is custom-designed to reflect your brand identity and stand out from the competition.',
     iconBg: 'bg-pink-50', iconColor: 'text-pink-500',
   },
   {
     icon: FaMobile,
     title: 'Mobile First',
-    description: 'Over 70% of car wash searches happen on phones. Every solution we build looks flawless on all devices.',
+    description: 'Over 70% of web traffic comes from mobile. Every solution we build looks and performs flawlessly on all screen sizes.',
     iconBg: 'bg-blue-50', iconColor: 'text-primary',
   },
   {
     icon: FaChartLine,
     title: 'Results-Driven',
-    description: 'We track bookings, traffic, and conversions. We optimize until the numbers move in the right direction.',
+    description: 'We track leads, conversions, and ROI. We optimize continuously until the numbers move in the right direction.',
     iconBg: 'bg-emerald-50', iconColor: 'text-emerald-600',
   },
   {
     icon: FaShieldAlt,
     title: 'Secure & Reliable',
-    description: 'SSL certificates, secure payments, daily backups. Your business and customer data are always protected.',
+    description: 'SSL, encrypted data handling, daily backups and 99.9% uptime. Your business and client data are always protected.',
     iconBg: 'bg-violet-50', iconColor: 'text-violet-600',
   },
   {
     icon: FaHeadset,
     title: '24/7 Support',
-    description: "Something breaks at 2am? We're here. Ongoing maintenance and support included in every plan.",
+    description: "Something breaks at 2am? We're here. Ongoing maintenance and dedicated support are included in every plan.",
     iconBg: 'bg-cyan-50', iconColor: 'text-cyan-600',
   },
 ];
@@ -71,8 +71,8 @@ export default function WhyUs() {
             <span className="text-gradient">Choose Us</span>
           </h2>
           <p className="text-ink-muted text-lg max-w-2xl mx-auto">
-            We specialize exclusively in the car wash industry. That means faster
-            delivery, better results, and solutions that actually fit your workflow.
+            We combine strategic thinking with deep technical execution. You get
+            a full-stack agency that delivers fast, builds right, and sticks around.
           </p>
         </motion.div>
 

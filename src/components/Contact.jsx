@@ -7,20 +7,20 @@ import { HiCheckCircle, HiXCircle } from 'react-icons/hi';
 
 const services = [
   'Website Design & Development',
-  'Online Booking System',
-  'Automated Reminders',
-  'Loyalty Program',
-  'Payment Integration',
-  'Review Management',
-  'CRM / Customer Database',
-  'POS Integration',
+  'Workflow Automation',
+  'Automated Notifications',
+  'Email Marketing Funnels',
+  'Payment & Subscription Systems',
+  'Reputation Management',
+  'CRM & Customer Management',
+  'Analytics & Reporting',
 ];
 
 const perks = [
-  'Custom website audit',
+  'Custom business audit',
   'Competitor analysis',
-  'Revenue growth roadmap',
-  'Tech recommendations',
+  'Growth & automation roadmap',
+  'Tech stack recommendations',
 ];
 
 export default function Contact() {
@@ -85,7 +85,7 @@ export default function Contact() {
           </h2>
           <p className="text-ink-muted text-lg max-w-2xl mx-auto">
             Fill out the form and we&apos;ll get back to you within 24 hours with a
-            custom plan tailored to your car wash business.
+            custom plan tailored to your business.
           </p>
         </motion.div>
 
@@ -116,17 +116,17 @@ export default function Contact() {
 
             {/* Contact links */}
             <div className="rounded-2xl bg-surface border border-slate-100 p-6 flex flex-col gap-4 shadow-card">
-              <a href="mailto:hello@washhub.io" className="flex items-center gap-4 group">
+              <a href="mailto:zeeshanzafar@automationslimited.com" className="flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center">
                   <FaEnvelope className="text-primary" />
                 </div>
                 <div>
                   <div className="text-ink-faint text-xs">Email us</div>
-                  <div className="text-ink-soft text-sm group-hover:text-primary transition-colors font-medium">hello@washhub.io</div>
+                  <div className="text-ink-soft text-sm group-hover:text-primary transition-colors font-medium">zeeshanzafar@automationslimited.com</div>
                 </div>
               </a>
               <div className="h-px bg-slate-100" />
-              <a href="https://wa.me/1234567890" className="flex items-center gap-4 group">
+              <a href="https://wa.me/923067240504" className="flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center">
                   <FaWhatsapp className="text-emerald-600" />
                 </div>
@@ -142,7 +142,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-ink-faint text-xs">Serving</div>
-                  <div className="text-ink-soft text-sm font-medium">Clients Nationwide (US)</div>
+                  <div className="text-ink-soft text-sm font-medium">Clients Worldwide</div>
                 </div>
               </div>
             </div>
@@ -213,7 +213,7 @@ export default function Contact() {
                     <div>
                       <label className="block text-ink-muted text-xs font-semibold mb-2 uppercase tracking-wide">Business Name</label>
                       <input type="text" name="business" value={form.business} onChange={handleChange}
-                        placeholder="Your Car Wash Co."
+                        placeholder="Your Company"
                         className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-ink placeholder-ink-faint focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition text-sm"
                       />
                     </div>
@@ -233,7 +233,7 @@ export default function Contact() {
                   <div>
                     <label className="block text-ink-muted text-xs font-semibold mb-2 uppercase tracking-wide">Tell Us About Your Business</label>
                     <textarea name="message" value={form.message} onChange={handleChange} rows={4}
-                      placeholder="Tell us about your car wash, current challenges, and what you're looking to achieve..."
+                      placeholder="Tell us about your business, current challenges, and what you're looking to achieve..."
                       className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 text-ink placeholder-ink-faint focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition text-sm resize-none"
                     />
                   </div>

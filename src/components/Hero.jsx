@@ -1,47 +1,18 @@
 'use client';
 
-import { useRef } from 'react';
-import Image from 'next/image';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import { HiSparkles } from 'react-icons/hi';
-import { useCountUp } from '../hooks/useCountUp';
 import { useTypewriter } from '../hooks/useTypewriter';
 
-const stats = [
-  { value: '50+', label: 'Clients Served' },
-  { value: '8', label: 'Services Offered' },
-  { value: '99%', label: 'Satisfaction Rate' },
-  { value: '24/7', label: 'Support' },
-];
-
 const bullets = [
-  'Custom websites built for car washes',
-  'Booking & automation in one platform',
+  'Custom websites & automation built for your business',
+  'Full-stack digital solutions in one platform',
   'Launch in as little as 7 days',
 ];
 
-function StatCard({ stat, index, inView }) {
-  const animated = useCountUp(stat.value, 1600, inView);
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-      className="bg-white rounded-2xl p-4 text-center shadow-card border border-slate-100"
-    >
-      <div className="text-2xl font-display font-black text-gradient mb-1">
-        {animated}
-      </div>
-      <div className="text-ink-muted text-xs">{stat.label}</div>
-    </motion.div>
-  );
-}
-
 export default function Hero() {
-  const statsRef = useRef(null);
-  const statsInView = useInView(statsRef, { once: true });
-  const { displayed, done } = useTypewriter('Car Wash', 90, 600);
+  const { displayed, done } = useTypewriter('Your Growth Engine', 80, 600);
 
   return (
     <section
@@ -63,16 +34,16 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-16 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="flex flex-col items-center">
 
-          {/* LEFT — text content */}
-          <div className="pl-6 lg:pl-12">
+          {/* CENTER — text content */}
+          <div className="w-full max-w-3xl text-center">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/8 border border-primary/20 text-primary text-sm font-semibold mb-7"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/8 border border-primary/20 text-primary text-sm font-semibold mb-7 mx-auto"
             >
               <motion.span
                 animate={{ rotate: [0, 15, -10, 0] }}
@@ -80,17 +51,17 @@ export default function Hero() {
               >
                 <HiSparkles className="text-base" />
               </motion.span>
-              #1 Digital Agency for Car Wash Businesses
+              Digital Automation Agency
             </motion.div>
 
             {/* Headline */}
-            <div className="font-display text-4xl md:text-5xl font-black leading-tight text-ink mb-4">
+            <div className="font-display text-4xl md:text-5xl lg:text-6xl font-black leading-tight text-ink mb-4">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                We Power Your
+                We Build &amp; Automate
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
@@ -115,13 +86,6 @@ export default function Hero() {
                   className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-primary to-accent rounded-full origin-left"
                 />
               </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                Business Online
-              </motion.div>
             </div>
 
             {/* Subtext */}
@@ -129,10 +93,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.55 }}
-              className="text-ink-muted text-base max-w-lg mb-6 leading-relaxed"
+              className="text-ink-muted text-base max-w-2xl mx-auto mb-6 leading-relaxed"
             >
-              From custom websites to full automation — we build the digital
-              tools car wash businesses need to grow faster and work smarter.
+              From custom websites to full workflow automation — Automations Limited
+              builds the digital infrastructure your business needs to grow faster
+              and work smarter.
             </motion.p>
 
             {/* Bullet trust points */}
@@ -140,7 +105,7 @@ export default function Hero() {
               initial="hidden"
               animate="visible"
               variants={{ visible: { transition: { staggerChildren: 0.1, delayChildren: 0.65 } } }}
-              className="flex flex-col gap-2 mb-7"
+              className="flex flex-col sm:flex-row sm:flex-wrap justify-center gap-2 mb-7"
             >
               {bullets.map((b) => (
                 <motion.li
@@ -159,7 +124,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
-              className="flex flex-col sm:flex-row gap-3 mb-10"
+              className="flex flex-col sm:flex-row justify-center gap-3 mb-10"
             >
               <motion.a
                 href="#contact"
@@ -185,49 +150,7 @@ export default function Hero() {
               </motion.a>
             </motion.div>
 
-            {/* Stats */}
-            <div ref={statsRef} className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-              {stats.map((stat, i) => (
-                <StatCard key={stat.label} stat={stat} index={i} inView={statsInView} />
-              ))}
-            </div>
           </div>
-
-          {/* RIGHT — car image */}
-          <motion.div
-            initial={{ opacity: 0, x: 60 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9, delay: 0.3, ease: 'easeOut' }}
-            className="relative flex items-center justify-center"
-          >
-            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/10 via-accent/10 to-transparent blur-2xl scale-110" />
-
-            <div className="absolute -top-4 -left-4 z-20 bg-white rounded-2xl shadow-card-hover border border-slate-100 px-4 py-3 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-blue-50 flex items-center justify-center text-lg">📅</div>
-              <div>
-                <div className="text-ink font-bold text-sm">32 bookings today</div>
-                <div className="text-ink-muted text-xs">via online system</div>
-              </div>
-            </div>
-
-            <div className="absolute bottom-6 -right-4 z-20 bg-white rounded-2xl shadow-card-hover border border-slate-100 px-4 py-3 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-500 font-bold text-lg">↑</div>
-              <div>
-                <div className="text-ink font-bold text-sm">+40% Revenue</div>
-                <div className="text-ink-muted text-xs">in first 3 months</div>
-              </div>
-            </div>
-
-            <Image
-              src="/car.png"
-              alt="Premium car wash"
-              width={800}
-              height={600}
-              priority
-              className="relative z-10 w-full rounded-[2rem] object-cover drop-shadow-2xl shadow-[0_32px_80px_rgba(0,0,0,0.18)] -mt-10"
-              style={{ maxHeight: '75vh', width: '100%', height: 'auto' }}
-            />
-          </motion.div>
 
         </div>
       </div>

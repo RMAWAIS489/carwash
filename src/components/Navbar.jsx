@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
-import { FaCar } from 'react-icons/fa';
+import { HiSparkles } from 'react-icons/hi';
 
 const navLinks = [
   { label: 'Home', href: '#home', id: 'home' },
@@ -24,7 +24,6 @@ export default function Navbar() {
     const onScroll = () => {
       setScrolled(window.scrollY > 40);
 
-      // Find which section is currently in view
       const sections = navLinks.map(l => document.getElementById(l.id)).filter(Boolean);
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
@@ -55,11 +54,11 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2 group">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-primary group-hover:scale-110 transition-transform">
-            <FaCar className="text-white text-lg" />
+            <HiSparkles className="text-white text-lg" />
           </div>
           <span className="font-display font-bold text-xl">
-            <span className="text-ink">Wash</span>
-            <span className="text-gradient">Hub</span>
+            <span className="text-ink">Automations</span>
+            <span className="text-gradient"> Limited</span>
           </span>
         </a>
 
@@ -76,7 +75,6 @@ export default function Navbar() {
                   }`}
                 >
                   {link.label}
-                  {/* Active underline */}
                   <span
                     className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-300 ${
                       isActive ? 'w-full' : 'w-0 group-hover:w-full'

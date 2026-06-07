@@ -7,28 +7,28 @@ import { FaStar } from 'react-icons/fa';
 const testimonials = [
   {
     name: 'Marcus Johnson',
-    role: 'Owner, Sparkle Auto Wash',
-    location: 'Houston, TX',
+    role: 'CEO, NovaTech Solutions',
+    location: 'New York, NY',
     rating: 5,
-    text: "WashHub transformed our business completely. Before them, we had zero online presence. Now we get 30+ online bookings every week and our revenue has grown by 40% in just 3 months.",
+    text: "Automations Limited completely transformed how we operate. Before them, our follow-up process was entirely manual. Now we capture and nurture leads on autopilot — our conversion rate jumped 55% in under two months.",
     avatar: 'MJ',
     avatarBg: 'bg-gradient-to-br from-blue-400 to-primary',
   },
   {
     name: 'Sarah Chen',
-    role: 'Manager, Premier Car Spa',
-    location: 'Los Angeles, CA',
+    role: 'Head of Operations, Meridian Finance',
+    location: 'Chicago, IL',
     rating: 5,
-    text: "The automated reminder system alone has cut our no-shows by half. The loyalty program they built keeps our regulars coming back. Absolutely worth every penny.",
+    text: "The CRM and email funnel they built tripled our onboarding speed. Their team was communicative, fast, and genuinely cared about our outcomes. The ROI was evident within weeks.",
     avatar: 'SC',
     avatarBg: 'bg-gradient-to-br from-cyan-400 to-teal-500',
   },
   {
     name: 'David Rivera',
-    role: 'CEO, CleanDrive Network',
-    location: 'Miami, FL',
+    role: 'Director, Apex Retail Group',
+    location: 'Austin, TX',
     rating: 5,
-    text: "We have 3 locations and WashHub integrated everything — one dashboard, all bookings, all customer data. The POS integration saved my team hours of manual work every day.",
+    text: "We had three separate tools that never talked to each other. Automations Limited unified everything — one dashboard, all data synced, all reporting automated. My team saves hours every single day.",
     avatar: 'DR',
     avatarBg: 'bg-gradient-to-br from-violet-400 to-purple-600',
   },
@@ -58,8 +58,8 @@ export default function Testimonials() {
             What Our Clients <span className="text-gradient">Say</span>
           </h2>
           <p className="text-ink-muted text-lg max-w-2xl mx-auto">
-            Don't take our word for it. Here's what car wash owners across the
-            country are saying after working with us.
+            Don&apos;t take our word for it. Here&apos;s what business owners and operators
+            say after working with Automations Limited.
           </p>
         </motion.div>
 
@@ -74,7 +74,7 @@ export default function Testimonials() {
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="relative rounded-2xl bg-white border border-slate-100 p-8 flex flex-col gap-5 hover:shadow-card-hover hover:border-slate-200 transition-colors duration-300"
             >
-              {/* Profile at top */}
+              {/* Profile */}
               <div className="flex items-center gap-4">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
@@ -86,32 +86,28 @@ export default function Testimonials() {
                   <div className="font-semibold text-ink text-sm">{t.name}</div>
                   <div className="text-ink-muted text-xs">{t.role}</div>
                   <div className="text-primary text-xs font-medium">{t.location}</div>
-                   <motion.div
-                className="flex gap-1"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{ visible: { transition: { staggerChildren: 0.08, delayChildren: index * 0.15 + 0.2 } } }}
-              >
-                {[...Array(t.rating)].map((_, i) => (
-                  <motion.span
-                    key={i}
-                    variants={{ hidden: { opacity: 0, scale: 0 }, visible: { opacity: 1, scale: 1 } }}
+                  <motion.div
+                    className="flex gap-1"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={{ visible: { transition: { staggerChildren: 0.08, delayChildren: index * 0.15 + 0.2 } } }}
                   >
-                    <FaStar className="text-amber-400 text-base" />
-                  </motion.span>
-                ))}
-              </motion.div>
+                    {[...Array(t.rating)].map((_, i) => (
+                      <motion.span
+                        key={i}
+                        variants={{ hidden: { opacity: 0, scale: 0 }, visible: { opacity: 1, scale: 1 } }}
+                      >
+                        <FaStar className="text-amber-400 text-base" />
+                      </motion.span>
+                    ))}
+                  </motion.div>
                 </div>
               </div>
 
-              
-             
-
               <p className="text-ink-soft leading-relaxed flex-1 italic text-[15px]">
-                "{t.text}"
+                &ldquo;{t.text}&rdquo;
               </p>
-
             </motion.div>
           ))}
         </div>

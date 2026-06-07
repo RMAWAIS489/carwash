@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'WashHub — Digital Solutions for Car Wash Businesses',
+  title: 'Automations Limited — Digital Automation Agency',
   description:
-    'WashHub — The digital agency built exclusively for car wash businesses. Custom websites, booking systems, automation, and more.',
+    'Automations Limited — We build websites, automation systems, and digital tools that help businesses grow faster and work smarter.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

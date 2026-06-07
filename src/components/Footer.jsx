@@ -1,15 +1,16 @@
 'use client';
 
-import { FaCar, FaTwitter, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { FaTwitter, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { HiSparkles } from 'react-icons/hi';
 
 const links = {
   Services: [
     'Website Development',
-    'Booking System',
-    'Automated Reminders',
-    'Loyalty Programs',
+    'Workflow Automation',
+    'Email Marketing',
+    'CRM & Lead Management',
     'Payment Integration',
-    'Review Management',
+    'Analytics & Reporting',
   ],
   Company: ['About Us', 'Case Studies', 'Blog', 'Careers', 'Press'],
   Support: ['Contact Us', 'FAQ', 'Privacy Policy', 'Terms of Service'],
@@ -24,16 +25,16 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <a href="#home" className="flex items-center gap-2 mb-4">
               <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                <FaCar className="text-white text-lg" />
+                <HiSparkles className="text-white text-lg" />
               </div>
               <span className="font-display font-bold text-xl">
-                <span className="text-white">Wash</span>
-                <span className="bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent">Hub</span>
+                <span className="text-white">Automations</span>
+                <span className="bg-gradient-to-r from-primary-light to-accent bg-clip-text text-transparent"> Limited</span>
               </span>
             </a>
             <p className="text-slate-400 text-sm leading-relaxed mb-6 max-w-xs">
-              The digital agency built exclusively for car wash businesses. We
-              turn car washes into data-driven, automated revenue machines.
+              A digital automation agency helping businesses grow faster through
+              smart websites, automated workflows, and data-driven systems.
             </p>
             {/* Socials */}
             <div className="flex gap-3">
@@ -68,8 +69,8 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-sm">
-          <span>© 2025 WashHub. All rights reserved.</span>
-          <span>Built with ❤️ for car wash businesses everywhere</span>
+          <span>© 2025 Automations Limited. All rights reserved.</span>
+          <span>Built with ❤️ for businesses that want to scale smarter</span>
         </div>
       </div>
     </footer>
