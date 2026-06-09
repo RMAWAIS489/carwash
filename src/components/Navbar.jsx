@@ -1,43 +1,50 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiMenuAlt3, HiX } from 'react-icons/hi';
-import { HiSparkles } from 'react-icons/hi';
+import { HiMenuAlt3, HiX, HiSparkles } from 'react-icons/hi';
 
 const navLinks = [
-  { label: 'Home', href: '#home', id: 'home' },
-  { label: 'Services', href: '#services', id: 'services' },
-  { label: 'How It Works', href: '#how-it-works', id: 'how-it-works' },
-  { label: 'Why Us', href: '#why-us', id: 'why-us' },
-  { label: 'Portfolio', href: '#portfolio', id: 'portfolio' },
-  { label: 'Testimonials', href: '#testimonials', id: 'testimonials' },
-  { label: 'Contact', href: '#contact', id: 'contact' },
+  { label: 'Home',         href: '/'             },
+  { label: 'Services',     href: '/services'     },
+  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'Why Us',       href: '/why-us'       },
+  { label: 'Projects',     href: '/projects'    },
+  { label: 'Testimonials', href: '/testimonials' },
+  { label: 'Contact',      href: '/#contact'     },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  // scrolled = true means StatsBar has reached the top (navbar should be white)
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeId, setActiveId] = useState('home');
+  const isHome = pathname === '/';
 
   useEffect(() => {
-    const onScroll = () => {
-      setScrolled(window.scrollY > 40);
+    if (!isHome) {
+      // On non-home pages always show solid navbar
+      setScrolled(true);
+      return;
+    }
 
-      const sections = navLinks.map(l => document.getElementById(l.id)).filter(Boolean);
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i];
-        const rect = section.getBoundingClientRect();
-        if (rect.top <= 100) {
-          setActiveId(section.id);
-          break;
-        }
+    const updateScrollState = () => {
+      // Find StatsBar section; fall back to a pixel threshold if not found
+      const statsBar = document.querySelector('section.bg-white');
+      if (statsBar) {
+        const { top } = statsBar.getBoundingClientRect();
+        // When StatsBar top reaches or passes the navbar bottom (~72px), go solid
+        setScrolled(top <= 72);
+      } else {
+        setScrolled(window.scrollY > 40);
       }
     };
 
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    updateScrollState();
+    window.addEventListener('scroll', updateScrollState, { passive: true });
+    return () => window.removeEventListener('scroll', updateScrollState);
+  }, [isHome]);
 
   return (
     <motion.header
@@ -46,32 +53,36 @@ export default function Navbar() {
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-sm'
-          : 'bg-transparent'
+          ? 'bg-white border-b border-gray-200 shadow-sm'
+          : 'bg-transparent backdrop-blur-sm'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-2 group">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-primary group-hover:scale-110 transition-transform">
+        <a href="/" className="relative flex items-center gap-2 group">
+          <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-primary group-hover:scale-110 transition-transform">
             <HiSparkles className="text-white text-lg" />
           </div>
           <span className="font-display font-bold text-xl">
-            <span className="text-ink">Automations</span>
+            <span className={scrolled ? 'text-gray-900' : 'text-white'}>Automations</span>
             <span className="text-gradient"> Limited</span>
           </span>
         </a>
 
         {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-8">
+        <ul className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => {
-            const isActive = activeId === link.id;
+            const isActive = link.href === pathname;
             return (
               <li key={link.label}>
                 <a
                   href={link.href}
-                  className={`text-sm font-medium transition-colors relative group ${
-                    isActive ? 'text-primary' : 'text-ink-muted hover:text-ink'
+                  className={`text-base font-semibold transition-colors relative group ${
+                    isActive
+                      ? 'text-primary'
+                      : scrolled
+                        ? 'text-gray-800 hover:text-primary'
+                        : 'text-white hover:text-white/80'
                   }`}
                 >
                   {link.label}
@@ -86,9 +97,9 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* CTA */}
+        {/* Desktop CTA */}
         <a
-          href="#contact"
+          href="/#contact"
           className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-white text-sm font-semibold hover:opacity-90 transition-opacity shadow-primary"
         >
           Get Started
@@ -97,20 +108,21 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-ink text-2xl"
+          className={`md:hidden text-2xl ${scrolled ? 'text-gray-900' : 'text-white'}`}
+          aria-label="Toggle menu"
         >
           {menuOpen ? <HiX /> : <HiMenuAlt3 />}
         </button>
       </nav>
 
-      {/* Mobile menu */}
+      {/* Mobile drawer */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-slate-100"
+            className="md:hidden bg-surface/95 backdrop-blur-xl border-t border-white/10"
           >
             <ul className="px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -119,7 +131,7 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
                     className={`text-base block py-1 font-medium transition-colors ${
-                      activeId === link.id ? 'text-primary' : 'text-ink-soft hover:text-ink'
+                      link.href === pathname ? 'text-primary' : 'text-ink-soft hover:text-ink'
                     }`}
                   >
                     {link.label}
@@ -128,7 +140,7 @@ export default function Navbar() {
               ))}
               <li>
                 <a
-                  href="#contact"
+                  href="/#contact"
                   onClick={() => setMenuOpen(false)}
                   className="block text-center px-5 py-3 rounded-xl bg-gradient-to-r from-primary to-primary-dark text-white font-semibold"
                 >

@@ -9,6 +9,10 @@
   body {
     @apply bg-surface text-ink overflow-x-hidden;
     font-family: 'Inter', system-ui, sans-serif;
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 }
 
@@ -20,29 +24,22 @@
     @apply bg-gradient-to-r from-orange-500 to-pink-500 bg-clip-text text-transparent;
   }
   .shadow-primary {
-    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.18);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.25);
   }
   .shadow-card {
-    box-shadow: 0 2px 16px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
   }
   .shadow-card-hover {
-    box-shadow: 0 8px 40px rgba(15, 23, 42, 0.14);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
   }
 }
 
-/* Grid line backgrounds */
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(37, 99, 235, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.07) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
 
-.bg-grid-sm {
-  background-image:
-    linear-gradient(rgba(37, 99, 235, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
+
+/* Animated gradient for hero headline */
+@keyframes gradientShift {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
 }
 
 /* Custom scrollbar */
@@ -50,12 +47,12 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #111827;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2563eb;
+  background: #3b82f6;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1d4ed8;
+  background: #2563eb;
 }
