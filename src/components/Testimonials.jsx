@@ -59,7 +59,7 @@ export default function Testimonials({ hideHeader = false }) {
   const t = testimonials[active];
 
   return (
-    <section id="testimonials" className="relative py-28 bg-[#f0f4ff] overflow-hidden">
+    <section id="testimonials" className="relative py-28 bg-white overflow-hidden">
 
       <div className="max-w-5xl mx-auto px-6">
         {!hideHeader && (
@@ -106,8 +106,7 @@ export default function Testimonials({ hideHeader = false }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-3xl p-px mb-8 overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, rgba(59,130,246,0.2) 0%, rgba(255,255,255,0.5) 50%, rgba(6,182,212,0.15) 100%)' }}
+          className="relative rounded-3xl p-px mb-8 overflow-hidden border border-gray-200"
         >
           {/* card inner */}
           <div
@@ -223,8 +222,7 @@ export default function Testimonials({ hideHeader = false }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.08 }}
-              className="relative rounded-2xl p-px overflow-hidden"
-              style={{ background: 'linear-gradient(135deg, rgba(59,130,246,0.15) 0%, rgba(255,255,255,0.8) 100%)' }}
+              className="relative rounded-2xl p-px overflow-hidden border border-gray-200"
             >
               <div
                 className="rounded-2xl text-center py-6 px-4 bg-white"

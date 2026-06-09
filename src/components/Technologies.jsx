@@ -122,13 +122,13 @@ export default function Technologies() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12"
         >
           {tabs.map((tab, i) => (
             <button
               key={tab.label}
               onClick={() => setActive(i)}
-              className={`relative px-8 py-3 text-sm font-bold rounded-xl transition-all duration-200 ${
+              className={`relative px-4 sm:px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-bold rounded-xl transition-all duration-200 ${
                 active === i
                   ? 'text-white bg-white/10'
                   : 'text-slate-400 hover:text-slate-200'

@@ -26,15 +26,15 @@ function StatItem({ icon: Icon, value, suffix, label, delay, isLast }) {
       className={`flex flex-col items-center gap-6 py-10 px-4`}
     >
       {/* Icon */}
-      <Icon className="text-4xl text-blue-600" />
+      <Icon className="text-4xl md:text-6xl text-blue-600" />
 
       {/* Number */}
-      <span className="font-display font-black text-4xl md:text-5xl text-blue-600 leading-none">
+      <span className="font-display font-black text-lg sm:text-3xl md:text-4xl lg:text-5xl text-blue-600 leading-none">
         {count}
       </span>
 
       {/* Label */}
-      <span className="text-gray-600 text-sm font-medium text-center">
+      <span className="text-gray-800 text-sm font-medium text-center">
         {label}
       </span>
     </motion.div>
@@ -47,8 +47,8 @@ export default function StatsBar() {
 
   return (
     <section ref={ref} className="bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-12">
-        <div className="grid grid-cols-2 sm:grid-cols-4 divide-x divide-gray-200">
+      <div className="w-full md:max-w-7xl mx-auto px-12">
+        <div className="grid grid-cols-2 sm:grid-cols-4 sm:divide-x sm:divide-gray-200">
           {stats.map((s, i) => (
             <StatItem key={s.label} {...s} delay={i * 0.12} isLast={i === stats.length - 1} />
           ))}

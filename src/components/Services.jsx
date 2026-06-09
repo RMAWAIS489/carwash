@@ -63,14 +63,9 @@ function ServiceCard({ service, index }) {
 
 export default function Services({ hideHeader = false }) {
   return (
-    <section id="services" className="relative py-28 overflow-hidden" style={{ background: '#070f20' }}>
+    <section id="services" className="relative py-28 overflow-hidden" style={{ background: '#ffffff' }}>
 
-      {/* light effects */}
-      <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: '250px', background: 'linear-gradient(to bottom, rgba(59,130,246,0.18) 0%, rgba(59,130,246,0.06) 50%, transparent 100%)' }} />
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{ height: '250px', background: 'linear-gradient(to top, rgba(59,130,246,0.15) 0%, rgba(59,130,246,0.05) 50%, transparent 100%)' }} />
-      <div className="absolute top-0 bottom-0 left-0 pointer-events-none" style={{ width: '250px', background: 'linear-gradient(to right, rgba(59,130,246,0.18) 0%, rgba(59,130,246,0.05) 50%, transparent 100%)' }} />
-      <div className="absolute top-0 bottom-0 right-0 pointer-events-none" style={{ width: '250px', background: 'linear-gradient(to left, rgba(59,130,246,0.15) 0%, rgba(59,130,246,0.05) 50%, transparent 100%)' }} />
-      <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 50%, rgba(59,130,246,0.13) 0%, rgba(59,130,246,0.05) 45%, transparent 70%)' }} />
+
 
       <div className="max-w-7xl mx-auto px-6">
         {!hideHeader && (
@@ -91,7 +86,7 @@ export default function Services({ hideHeader = false }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="font-display font-black text-4xl md:text-5xl text-white mb-5 leading-tight"
+              className="font-display font-black text-4xl md:text-5xl text-gray-900 mb-5 leading-tight"
             >
               Everything Your Business{' '}
               <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
@@ -103,7 +98,7 @@ export default function Services({ hideHeader = false }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-gray-600 text-lg leading-relaxed"
+              className="text-gray-500 text-lg leading-relaxed"
             >
               We don&apos;t just build websites — we build complete digital ecosystems
               that automate operations and accelerate growth.
