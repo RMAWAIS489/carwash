@@ -37,7 +37,7 @@ const contactItems = [
     icon: FaWhatsapp,
     label: 'WhatsApp',
     value: 'Chat with us directly',
-    href: 'https://wa.me/923067240504',
+    href: 'https://wa.me/923435586007',
     color: 'text-emerald-600',
     glow: 'rgba(16,185,129,0.1)',
     border: 'rgba(16,185,129,0.25)',
