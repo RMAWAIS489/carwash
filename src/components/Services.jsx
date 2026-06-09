@@ -75,11 +75,11 @@ export default function Services({ hideHeader = false }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-blue-400 mb-4"
+              className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] uppercase text-blue-600 mb-4"
             >
-              <span className="w-6 h-px bg-blue-500/60" />
+              <span className="w-6 h-px bg-blue-600/60" />
               What We Offer
-              <span className="w-6 h-px bg-blue-500/60" />
+              <span className="w-6 h-px bg-blue-600/60" />
             </motion.span>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
