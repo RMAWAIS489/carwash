@@ -27,8 +27,8 @@ const contactItems = [
   {
     icon: FaEnvelope,
     label: 'Email us',
-    value: 'zeeshanzafar@automationslimited.com',
-    href: 'mailto:zeeshanzafar@automationslimited.com',
+    value: 'info@automationslimited.com',
+    href: 'mailto:info@automationslimited.com',
     color: 'text-blue-600',
     glow: 'rgba(59,130,246,0.1)',
     border: 'rgba(59,130,246,0.25)',
