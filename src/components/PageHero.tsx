@@ -37,11 +37,7 @@ export default function PageHero({ label, title, highlight, description }: PageH
         height: '250px',
         background: 'linear-gradient(to bottom, rgba(59,130,246,0.18) 0%, rgba(59,130,246,0.06) 50%, transparent 100%)',
       }} />
-      {/* Bottom horizontal beam */}
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none" style={{
-        height: '250px',
-        background: 'linear-gradient(to top, rgba(59,130,246,0.15) 0%, rgba(59,130,246,0.05) 50%, transparent 100%)',
-      }} />
+      {/* Bottom horizontal beam removed to avoid line at section join */}
       {/* Left vertical beam */}
       <div className="absolute top-0 bottom-0 left-0 pointer-events-none" style={{
         width: '250px',

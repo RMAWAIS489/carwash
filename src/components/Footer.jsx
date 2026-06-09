@@ -18,10 +18,10 @@ const links = {
 };
 
 const socials = [
-  { Icon: FaTwitter,   href: '#' },
-  { Icon: FaLinkedin,  href: '#' },
-  { Icon: FaInstagram, href: '#' },
-  { Icon: FaFacebook,  href: '#' },
+  { Icon: FaTwitter,   href: 'https://x.com/automations_ltd' },
+  { Icon: FaLinkedin,  href: 'https://www.linkedin.com/company/127233955/' },
+  { Icon: FaInstagram, href: 'https://www.instagram.com/automationslimited/' },
+  { Icon: FaFacebook,  href: 'https://www.facebook.com/profile.php?id=61590403694008' },
 ];
 
 export default function Footer() {
@@ -85,6 +85,8 @@ export default function Footer() {
                   <a
                     key={i}
                     href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-lg flex items-center justify-center text-white/60 hover:text-blue-400 transition-all"
                     style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.15)' }}
                   >

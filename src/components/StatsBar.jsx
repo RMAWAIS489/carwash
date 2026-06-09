@@ -34,7 +34,7 @@ function StatItem({ icon: Icon, value, suffix, label, delay, isLast }) {
       </span>
 
       {/* Label */}
-      <span className="text-gray-800 text-sm font-medium text-center">
+      <span className="text-gray-800 text-base font-medium text-center">
         {label}
       </span>
     </motion.div>
