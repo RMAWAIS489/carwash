@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     });
 
     await transporter.sendMail({
-      from: `"WashHub Contact" <${process.env.EMAIL_USER}>`,
+      from: `"Automations Limited" <${process.env.EMAIL_USER}>`,
       to: process.env.EMAIL_USER,
       replyTo: email,
       subject: `New enquiry from ${name}${business ? ` — ${business}` : ''}`,
@@ -60,7 +60,7 @@ export async function POST(request: Request) {
             </tr>
           </table>
           <div style="margin-top: 32px; padding-top: 16px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 12px;">
-            Sent via WashHub contact form
+            Sent via Automations Limited contact form
           </div>
         </div>
       `,
