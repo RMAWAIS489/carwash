@@ -5,6 +5,11 @@ export const metadata: Metadata = {
   title: 'Automations Limited — Digital Automation Agency',
   description:
     'Automations Limited — We build websites, automation systems, and digital tools that help businesses grow faster and work smarter.',
+  icons: {
+    icon: '/logo2.png',
+    shortcut: '/logo2.png',
+    apple: '/logo2.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

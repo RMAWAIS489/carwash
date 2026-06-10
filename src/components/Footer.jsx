@@ -68,10 +68,8 @@ export default function Footer() {
             {/* Brand col */}
             <div className="lg:col-span-2">
               <a href="#home" className="inline-flex items-center gap-2 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                  <HiSparkles className="text-white text-xl" />
-                </div>
-                <span className="font-display font-bold text-2xl">
+                <img src="/logo.png" alt="Automations Limited" className="h-10 w-auto" />
+                <span className="font-display font-bold text-xl">
                   <span className="text-white">Automations</span>
                   <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"> Limited</span>
                 </span>

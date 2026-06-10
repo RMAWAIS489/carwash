@@ -60,13 +60,27 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="relative flex items-center gap-2 group">
-          <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-primary group-hover:scale-110 transition-transform">
-            <HiSparkles className="text-white text-lg" />
-          </div>
-          <span className="font-display font-bold text-xl">
-            <span className={scrolled ? 'text-gray-900' : 'text-white'}>Automations</span>
-            <span className="text-gradient"> Limited</span>
-          </span>
+          <motion.div
+            initial={{ scale: 0.5, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.6, type: 'spring', stiffness: 200, damping: 15 }}
+            className="relative"
+          >
+            {/* glow ring that pulses on load then fades */}
+            <motion.div
+              initial={{ opacity: 0.8, scale: 1 }}
+              animate={{ opacity: 0, scale: 1.8 }}
+              transition={{ duration: 1.2, delay: 0.4, ease: 'easeOut' }}
+              className="absolute inset-0 rounded-full bg-blue-400/40 pointer-events-none"
+            />
+            <motion.img
+              src="/logo.png"
+              alt="Automations Limited"
+              className="h-16 w-auto relative z-10"
+              whileHover={{ scale: 1.1, filter: 'drop-shadow(0 0 12px rgba(59,130,246,0.8))' }}
+              transition={{ duration: 0.2 }}
+            />
+          </motion.div>
         </a>
 
         {/* Desktop nav */}
