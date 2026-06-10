@@ -76,7 +76,7 @@ export default function Navbar() {
             <motion.img
               src="/logo.png"
               alt="Automations Limited"
-              className="h-16 w-auto relative z-10"
+              className="h-12 sm:h-14 md:h-16 w-auto relative z-10"
               whileHover={{ scale: 1.1, filter: 'drop-shadow(0 0 12px rgba(59,130,246,0.8))' }}
               transition={{ duration: 0.2 }}
             />
